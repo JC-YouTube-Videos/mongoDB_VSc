@@ -1,15 +1,28 @@
 use('JC-PersonalItems');
 
 // *** Slide 2 ***
+/*
 // General SELECT
 db.quizinterviewdatas.find().sort({ "id": 1 }).toArray()
+*/
 
 // *** Slide 3 ***
-
+/*
+// db.quizinterviewdatas.findOne({ _id: ObjectId("649c282e9e00f5dc20d835e1") })
+// db.quizinterviewdatas.insertOne(
+//   {
+//     id: 100,
+//     name: 'Justin Test',
+//     username: 'Test',
+//     state: true
+//   }
+// )
+// db.quizinterviewdatas.deleteOne({id: 100})
+*/
 
 // *** Slide 4 ***
-// arrayFilters - Really usefull for accessing nested data
 /*
+// arrayFilters - Really usefull for accessing nested data
 db.quizinterviewdatas.updateOne(
   {
     id: 3
