@@ -1,0 +1,22 @@
+// *** Slide 7 ***
+const mongoose = require('mongoose');
+
+const UserRoleSchema = new mongoose.Schema(
+  {
+    userRole: { type: String },
+		userTypes: [
+			{
+				_id: false,
+				userTypeId: { type: mongoose.Types.ObjectId }, 
+				userType: { type: String }
+			}
+		],
+		edit: { type: Boolean },
+		comments: { type: String }
+  },
+	{
+		versionKey: false,
+	}
+);
+
+module.exports = mongoose.model('Userrole', UserRoleSchema);
