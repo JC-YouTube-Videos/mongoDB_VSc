@@ -42,11 +42,12 @@ db.quizinterviewdatas.updateOne(
 db.quizinterviewdatas.findOne({id: 3})
 */
 
-
 // *** Slide 5 ***
+/*
+// *** Justin - remember to comment out the examples after this one ***
 // Unwind, Project & sort(I put the sort in to show how you refer the projected name)
 // !!!! Once you unwind you cannot 'wind' it back together
-/*
+
 db.quizinterviewdatas.aggregate([
   { $match: {_id: ObjectId("649c282e9e00f5dc20d835e0") }},
   { $unwind: '$phone' },
@@ -58,10 +59,9 @@ db.quizinterviewdatas.aggregate([
   }},
   { $sort: {phoneType: 1} }
 ])
-*/
 
-// Creating Data - super easy to add date to the DB
-/*
+
+// Creating Data - Doing this to demostrate the 'lookup'
 db.quizinterviewtypes.drop()
 db.quizinterviewtypes.insertMany([
   {
@@ -79,11 +79,8 @@ db.quizinterviewtypes.insertMany([
 ])
 
 db.quizinterviewtypes.find()
-*/
 
-
-// Lookup (This is link doing a join in SQL) & Group 
-/*
+// Lookup (This is like doing a join in SQL) & Group 
 db.quizinterviewdatas.aggregate([
   { $unwind: '$phone' },
   { $project: { _id: 0, name:1, phoneType: '$phone.type', phoneNumber: '$phone.number'} },
@@ -104,25 +101,25 @@ db.quizinterviewdatas.aggregate([
 */
 
 // *** Slide 6 ***
-// Dynamic - This who I can dynamically query the data if you do not know what is always doing to be passed in
 /*
+// Dynamic - This how I can dynamically query the data if you do not know what is always doing to be passed in
+// I would send an object of id's (or whatever) in an array that I wanted to filter the data by
+
 // ----------------------------------------------------------- \\
 // Dynamic create quert clause
 let quiz_id, quizId
 
-const quiz_idPassedIn = ['649c282e9e00f5dc20d835e0', '649c282e9e00f5dc20d835df']
-// const quiz_idPassedIn = []
-
-// const quizIdPassedIn = [4, 6]
-const quizIdPassedIn = []
+const params = { _ids: ['649c282e9e00f5dc20d835e0', '649c282e9e00f5dc20d835df'], ids: [] }
+// const params = { _ids: [], ids: [4, 6] }
+// const params = { _ids: [], ids: [] }
 
 // Need the if to convert the string to object as this is how it arrives on the BE
-if (quiz_idPassedIn.length > 0) {
-  quiz_idPassedIn = quiz_idPassedIn.map((a) => ObjectId(a))
+if (params._ids.length > 0) {
+  params._ids = params._ids.map((a) => ObjectId(a))
 }
 
-if (quiz_idPassedIn.length > 0) { quiz_id = { $in: quiz_idPassedIn } } else { quiz_id = { $ne: null } }
-if (quizIdPassedIn.length > 0) { quizId = { $in: quizIdPassedIn } } else { quizId = { $ne: null } }
+if (params._ids.length > 0) { quiz_id = { $in: params._ids } } else { quiz_id = { $ne: null } }
+if (params.ids.length > 0) { quizId = { $in: params.ids } } else { quizId = { $ne: null } }
 // ----------------------------------------------------------- \\
 
 db.quizinterviewdatas.aggregate([
@@ -136,10 +133,9 @@ db.quizinterviewdatas.aggregate([
   }},
   { $sort: {id: 1} }
 ])
-*/
 
-/*
+
 // toString - Have to convert the object to evaluate it (just an example not ran)
 // This is often done when you want to work through a loop of the 'resulting data' before sending to the FE
-if (this.req.user.userRoles.filter((ur) => a.userRoles.some((mr) => mr.userRoleId.toString() === ur.userRoleId.toString())).length)
+// if (this.req.user.userRoles.filter((ur) => a.userRoles.some((mr) => mr.userRoleId.toString() === ur.userRoleId.toString())).length)
 */

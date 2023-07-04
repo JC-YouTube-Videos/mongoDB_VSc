@@ -1,0 +1,430 @@
+use('JC-PersonalItems');
+
+// db.quizinterviewdatas.find().sort({ '_id': -1 })
+
+db.quizinterviewdatas.drop()
+
+db.quizinterviewdatas.insertMany(
+  [
+    {
+      _id: ObjectId('649c282e9e00f5dc20d835de'),
+      id: 1,
+      name: 'Leanne Graham',
+      username: 'Bret',
+      email: [
+        {
+          emailId: ObjectId("649c2ad488c55df378a47000"),
+          type: 'personal',
+          emailAddress: 'Sincere@april.biz'
+        }
+      ],
+      address: {
+        street: 'Kulas Light',
+        suite: 'Apt. 556',
+        city: 'Gwenborough',
+        zipcode: '92998-3874',
+        geo: {
+          lat: '-37.3159',
+          lng: '81.1496'
+        }
+      },
+      phone: [
+        {
+          _id: ObjectId("649c2ad488c55df378a47001"),
+          type: 'mobile',
+          number: '079415 123 456'
+        },
+        {
+          _id: ObjectId("649c2ad488c55df378a47002"),
+          type: 'work',
+          number: '01332 123 456'
+        }
+      ],
+      website: 'hildegard.org',
+      company: {
+        name: 'Romaguera-Crona',
+        catchPhrase: 'Multi-layered client-server neural-net',
+        bs: 'harness real-time e-markets'
+      },
+      state: true
+    },
+    {
+      _id: ObjectId('649c282e9e00f5dc20d835df'),
+      id: 2,
+      name: 'Ervin Howell',
+      username: 'Antonette',
+      email: [
+        {
+          emailId: ObjectId("649c2ad488c55df378a47003"),
+          type: 'personal',
+          emailAddress: 'Shanna@melissa.tv'
+        }
+      ],
+      address: {
+        street: 'Victor Plains',
+        suite: 'Suite 879',
+        city: 'Wisokyburgh',
+        zipcode: '90566-7771',
+        geo: {
+          lat: '-43.9509',
+          lng: '-34.4618'
+        }
+      },
+      phone: [
+        {
+          _id: ObjectId("649c2ad488c55df378a47004"),
+          type: 'mobile',
+          number: '079415 123 593'
+        },
+        {
+          _id: ObjectId("649c2ad488c55df378a47005"),
+          type: 'work',
+          number: '010-692-6593'
+        }
+      ],
+      website: 'anastasia.net',
+      company: {
+        name: 'Deckow-Crist',
+        catchPhrase: 'Proactive didactic contingency',
+        bs: 'synergize scalable supply-chains'
+      },
+      state: true
+    },
+    {
+      _id: ObjectId('649c282e9e00f5dc20d835e0'),
+      id: 3,
+      name: 'Clementine Bauch',
+      username: 'Samantha',
+      email: [
+        {
+          emailId: ObjectId("649c2ad488c55df378a47006"),
+          type: 'personal',
+          emailAddress: 'Nathan@yesenia.net'
+        }
+      ],
+      address: {
+        street: 'Douglas Extension',
+        suite: 'Suite 847',
+        city: 'McKenziehaven',
+        zipcode: '59590-4157',
+        geo: {
+          lat: '-68.6102',
+          lng: '-47.0653'
+        }
+      },
+      phone: [
+        {
+          _id: ObjectId("649c2ad488c55df378a47007"),
+          type: 'mobile',
+          number: '079415 123 447'
+        },
+        {
+          _id: ObjectId("649c2ad488c55df378a47008"),
+          type: 'work',
+          number: '1-463-123-4447'
+        }
+      ],
+      website: 'ramiro.info',
+      company: {
+        name: 'Romaguera-Jacobson',
+        catchPhrase: 'Face to face bifurcated interface',
+        bs: 'e-enable strategic applications'
+      },
+      state: false
+    },
+    {
+      _id: ObjectId('649c282e9e00f5dc20d835e1'),
+      id: 4,
+      name: 'Patricia Lebsack',
+      username: 'Karianne',
+      email: [
+        {
+          emailId: ObjectId("649c2ad488c55df378a47009"),
+          type: 'personal',
+          emailAddress: 'Julianne.OConner@kory.org'
+        }
+      ],
+      address: {
+        street: 'Hoeger Mall',
+        suite: 'Apt. 692',
+        city: 'South Elvis',
+        zipcode: '53919-4257',
+        geo: {
+          lat: '29.4572',
+          lng: '-164.2990'
+        }
+      },
+      phone: [
+        {
+          _id: ObjectId("649c2ad488c55df378a4700a"),
+          type: 'mobile',
+          number: '079415 123 623'
+        },
+        {
+          _id: ObjectId("649c2ad488c55df378a4700b"),
+          type: 'work',
+          number: '493-170-9623'
+        }
+      ],
+      website: 'kale.biz',
+      company: {
+        name: 'Robel-Corkery',
+        catchPhrase: 'Multi-tiered zero tolerance productivity',
+        bs: 'transition cutting-edge web services'
+      },
+      state: true
+    },
+    {
+      _id: ObjectId('649c282e9e00f5dc20d835e2'),
+      id: 5,
+      name: 'Chelsey Dietrich',
+      username: 'Kamren',
+      email: [
+        {
+          emailId: ObjectId("649c2ad488c55df378a4700c"),
+          type: 'personal',
+          emailAddress: 'Lucio_Hettinger@annie.ca'
+        }
+      ],
+      address: {
+        street: 'Skiles Walks',
+        suite: 'Suite 351',
+        city: 'Roscoeview',
+        zipcode: '33263',
+        geo: {
+          lat: '-31.8129',
+          lng: '62.5342'
+        }
+      },
+      phone: [
+        {
+          _id: ObjectId("649c2ad488c55df378a4700d"),
+          type: 'mobile',
+          number: '079415 123 289'
+        },
+        {
+          _id: ObjectId("649c2ad488c55df378a4700e"),
+          type: 'work',
+          number: '(254)954-1289'
+        }
+      ],
+      website: 'demarco.info',
+      company: {
+        name: 'Keebler LLC',
+        catchPhrase: 'User-centric fault-tolerant solution',
+        bs: 'revolutionize end-to-end systems'
+      },
+      state: false
+    },
+    {
+      _id: ObjectId('649c282e9e00f5dc20d835e3'),
+      id: 6,
+      name: 'Mrs. Dennis Schulist',
+      username: 'Leopoldo_Corkery',
+      email: [
+        {
+          emailId: ObjectId("649c2ad488c55df378a4700f"),
+          type: 'personal',
+          emailAddress: 'Karley_Dach@jasper.info'
+        }
+      ],
+      address: {
+        street: 'Norberto Crossing',
+        suite: 'Apt. 950',
+        city: 'South Christy',
+        zipcode: '23505-1337',
+        geo: {
+          lat: '-71.4197',
+          lng: '71.7478'
+        }
+      },
+      phone: [
+        {
+          _id: ObjectId("649c2ad488c55df378a47010"),
+          type: 'mobile',
+          number: '079415 123 478'
+        },
+        {
+          _id: ObjectId("649c2ad488c55df378a47011"),
+          type: 'work',
+          number: '1-477-935-8478'
+        }
+      ],
+      website: 'ola.org',
+      company: {
+        name: 'Considine-Lockman',
+        catchPhrase: 'Synchronised bottom-line interface',
+        bs: 'e-enable innovative applications'
+      },
+      state: true
+    },
+    {
+      _id: ObjectId('649c282e9e00f5dc20d835e4'),
+      id: 7,
+      name: 'Kurtis Weissnat',
+      username: 'Elwyn.Skiles',
+      email: [
+        {
+          emailId: ObjectId("649c2ad488c55df378a47012"),
+          type: 'personal',
+          emailAddress: 'Telly.Hoeger@billy.biz'
+        }
+      ],
+      address: {
+        street: 'Rex Trail',
+        suite: 'Suite 280',
+        city: 'Howemouth',
+        zipcode: '58804-1099',
+        geo: {
+          lat: '24.8918',
+          lng: '21.8984'
+        }
+      },
+      phone: [
+        {
+          _id: ObjectId("649c2ad488c55df378a47013"),
+          type: 'mobile',
+          number: '079415 123 132'
+        },
+        {
+          _id: ObjectId("649c2ad488c55df378a47014"),
+          type: 'work',
+          number: '210.067.6132'
+        }
+      ],
+      website: 'elvis.io',
+      company: {
+        name: 'Johns Group',
+        catchPhrase: 'Configurable multimedia task-force',
+        bs: 'generate enterprise e-tailers'
+      },
+      state: true
+    },
+    {
+      _id: ObjectId('649c282e9e00f5dc20d835e5'),
+      id: 8,
+      name: 'Nicholas Runolfsdottir V',
+      username: 'Maxime_Nienow',
+      email: [
+        {
+          emailId: ObjectId("649c2ad488c55df378a47015"),
+          type: 'personal',
+          emailAddress: 'Sherwood@rosamond.me'
+        }
+      ],
+      address: {
+        street: 'Ellsworth Summit',
+        suite: 'Suite 729',
+        city: 'Aliyaview',
+        zipcode: '45169',
+        geo: {
+          lat: '-14.3990',
+          lng: '-120.7677'
+        }
+      },
+      phone: [
+        {
+          _id: ObjectId("649c2ad488c55df378a47016"),
+          type: 'mobile',
+          number: '079415 123 943'
+        },
+        {
+          _id: ObjectId("649c2ad488c55df378a47017"),
+          type: 'work',
+          number: '586.493.6943'
+        }
+      ],
+      website: 'jacynthe.com',
+      company: {
+        name: 'Abernathy Group',
+        catchPhrase: 'Implemented secondary concept',
+        bs: 'e-enable extensible e-tailers'
+      },
+      state: false
+    },
+    {
+      _id: ObjectId('649c282e9e00f5dc20d835e6'),
+      id: 9,
+      name: 'Glenna Reichert',
+      username: 'Delphine',
+      email: [
+        {
+          emailId: ObjectId("649c2ad488c55df378a47018"),
+          type: 'personal',
+          emailAddress: 'Chaim_McDermott@dana.io'
+        }
+      ],
+      address: {
+        street: 'Dayna Park',
+        suite: 'Suite 449',
+        city: 'Bartholomebury',
+        zipcode: '76495-3109',
+        geo: {
+          lat: '24.6463',
+          lng: '-168.8889'
+        }
+      },
+      phone: [
+        {
+          _id: ObjectId("649c2ad488c55df378a47019"),
+          type: 'mobile',
+          number: '079415 123 794'
+        },
+        {
+          _id: ObjectId("649c2ad488c55df378a4701a"),
+          type: 'work',
+          number: '(775)976-6794'
+        }
+      ],
+      website: 'conrad.com',
+      company: {
+        name: 'Yost and Sons',
+        catchPhrase: 'Switchable contextually-based project',
+        bs: 'aggregate real-time technologies'
+      },
+      state: true
+    },
+    {
+      _id: ObjectId('649c282e9e00f5dc20d835e7'),
+      id: 10,
+      name: 'Clementina DuBuque',
+      username: 'Moriah.Stanton',
+      email: [
+        {
+          emailId: ObjectId("649c2ad488c55df378a4701b"),
+          type: 'personal',
+          emailAddress: 'Rey.Padberg@karina.biz'
+        }
+      ],
+      address: {
+        street: 'Kattie Turnpike',
+        suite: 'Suite 198',
+        city: 'Lebsackbury',
+        zipcode: '31428-2261',
+        geo: {
+          lat: '-38.2386',
+          lng: '57.2232'
+        }
+      },
+      phone: [
+        {
+          _id: ObjectId("649c2ad488c55df378a4701c"),
+          type: 'mobile',
+          number: '079415 123 804'
+        },
+        {
+          _id: ObjectId("649c2ad488c55df378a4701d"),
+          type: 'work',
+          number: '024-648-3804'
+        }
+      ],
+      website: 'ambrose.net',
+      company: {
+        name: 'Hoeger LLC',
+        catchPhrase: 'Centralized empowering task-force',
+        bs: 'target end-to-end models'
+      },
+      state: true
+    }
+  ]
+)
