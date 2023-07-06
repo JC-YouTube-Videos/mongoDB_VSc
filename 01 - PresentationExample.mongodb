@@ -1,4 +1,4 @@
-use('TCG-YouTube-Examples');
+use('TGC-YouTube-Examples');
 
 // *** Slide 2 ***
 /*
@@ -7,8 +7,8 @@ db.exampledatas.find().sort({ "id": 1 }).toArray()
 */
 
 // *** Slide 3 ***
-/*
-// db.exampledatas.findOne({ _id: ObjectId("649c282e9e00f5dc20d835e1") })
+
+db.exampledatas.findOne({ _id: ObjectId("649c282e9e00f5dc20d835e1") })
 // db.exampledatas.insertOne(
 //   {
 //     id: 100,
@@ -18,7 +18,7 @@ db.exampledatas.find().sort({ "id": 1 }).toArray()
 //   }
 // )
 // db.exampledatas.deleteOne({id: 100})
-*/
+
 
 // *** Slide 4 ***
 /*
@@ -107,7 +107,7 @@ db.exampledatas.aggregate([
 
 // ----------------------------------------------------------- \\
 // Dynamic create quert clause
-let quiz_id, quizId
+let example_id, exampleId
 
 const params = { _ids: ['649c282e9e00f5dc20d835e0', '649c282e9e00f5dc20d835df'], ids: [] }
 // const params = { _ids: [], ids: [4, 6] }
@@ -118,13 +118,13 @@ if (params._ids.length > 0) {
   params._ids = params._ids.map((a) => ObjectId(a))
 }
 
-if (params._ids.length > 0) { quiz_id = { $in: params._ids } } else { quiz_id = { $ne: null } }
-if (params.ids.length > 0) { quizId = { $in: params.ids } } else { quizId = { $ne: null } }
+if (params._ids.length > 0) { example_id = { $in: params._ids } } else { example_id = { $ne: null } }
+if (params.ids.length > 0) { exampleId = { $in: params.ids } } else { exampleId = { $ne: null } }
 // ----------------------------------------------------------- \\
 
 db.exampledatas.aggregate([
-  { $match: {_id: quiz_id }},
-  { $match: {id: quizId }},
+  { $match: {_id: example_id }},
+  { $match: {id: exampleId }},
   { $project: { 
     _id: 1,
     id: 1,
