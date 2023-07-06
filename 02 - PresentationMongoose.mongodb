@@ -1,22 +1,46 @@
 // *** Slide 7 ***
 const mongoose = require('mongoose');
 
-const UserRoleSchema = new mongoose.Schema(
+const ExampledataSchema = new mongoose.Schema(
   {
-    userRole: { type: String },
-		userTypes: [
+		id: { type: Number },
+		name: { type: String },
+		username: { type: String },
+		email: [
 			{
-				_id: false,
-				userTypeId: { type: mongoose.Types.ObjectId }, 
-				userType: { type: String }
+				emailId: { type: mongoose.Types.ObjectId },
+				type: { type: String },
+				emailAddress: { type: String }
 			}
 		],
-		edit: { type: Boolean },
-		comments: { type: String }
+		address: {
+			street: { type: String },
+			suite: { type: String },
+			city: { type: String },
+			zipcode: { type: String },
+			geo: {
+				lat: { type: String },
+				lng:{ type: String }
+			}
+		},
+		phone: [
+			{
+				_id: { type: mongoose.Types.ObjectId },
+				type: { type: String },
+				number: { type: String }
+			}
+		],
+		website: { type: String },
+		company: {
+			name: { type: String },
+			catchPhrase: { type: String },
+			bs: { type: String }
+		},
+		state: { type: Boolean }
   },
 	{
 		versionKey: false,
 	}
 );
 
-module.exports = mongoose.model('Userrole', UserRoleSchema);
+module.exports = mongoose.model('Exampledata', ExampledataSchema);

@@ -1,15 +1,15 @@
-use('JC-PersonalItems');
+use('TCG-YouTube-Examples');
 
 // *** Slide 2 ***
 /*
 // General SELECT
-db.quizinterviewdatas.find().sort({ "id": 1 }).toArray()
+db.exampledatas.find().sort({ "id": 1 }).toArray()
 */
 
 // *** Slide 3 ***
 /*
-// db.quizinterviewdatas.findOne({ _id: ObjectId("649c282e9e00f5dc20d835e1") })
-// db.quizinterviewdatas.insertOne(
+// db.exampledatas.findOne({ _id: ObjectId("649c282e9e00f5dc20d835e1") })
+// db.exampledatas.insertOne(
 //   {
 //     id: 100,
 //     name: 'Justin Test',
@@ -17,13 +17,13 @@ db.quizinterviewdatas.find().sort({ "id": 1 }).toArray()
 //     state: true
 //   }
 // )
-// db.quizinterviewdatas.deleteOne({id: 100})
+// db.exampledatas.deleteOne({id: 100})
 */
 
 // *** Slide 4 ***
 /*
 // arrayFilters - Really usefull for accessing nested data
-db.quizinterviewdatas.updateOne(
+db.exampledatas.updateOne(
   {
     id: 3
   },
@@ -39,7 +39,7 @@ db.quizinterviewdatas.updateOne(
   }
 )
 
-db.quizinterviewdatas.findOne({id: 3})
+db.exampledatas.findOne({id: 3})
 */
 
 // *** Slide 5 ***
@@ -48,7 +48,7 @@ db.quizinterviewdatas.findOne({id: 3})
 // Unwind, Project & sort(I put the sort in to show how you refer the projected name)
 // !!!! Once you unwind you cannot 'wind' it back together
 
-db.quizinterviewdatas.aggregate([
+db.exampledatas.aggregate([
   { $match: {_id: ObjectId("649c282e9e00f5dc20d835e0") }},
   { $unwind: '$phone' },
   { $project: { 
@@ -62,8 +62,8 @@ db.quizinterviewdatas.aggregate([
 
 
 // Creating Data - Doing this to demostrate the 'lookup'
-db.quizinterviewtypes.drop()
-db.quizinterviewtypes.insertMany([
+db.exampletypes.drop()
+db.exampletypes.insertMany([
   {
     typesType: 'personal',
     typesName: 'Type - Personal'
@@ -78,15 +78,15 @@ db.quizinterviewtypes.insertMany([
   }
 ])
 
-db.quizinterviewtypes.find()
+db.exampletypes.find()
 
 // Lookup (This is like doing a join in SQL) & Group 
-db.quizinterviewdatas.aggregate([
+db.exampledatas.aggregate([
   { $unwind: '$phone' },
   { $project: { _id: 0, name:1, phoneType: '$phone.type', phoneNumber: '$phone.number'} },
   // {
   //   $lookup: {
-  //     from: 'quizinterviewtypes',
+  //     from: 'exampletypes',
   //     localField: 'phoneType',
   //     foreignField: 'typesType',
   //     as: 'phoneDetails',
@@ -122,7 +122,7 @@ if (params._ids.length > 0) { quiz_id = { $in: params._ids } } else { quiz_id = 
 if (params.ids.length > 0) { quizId = { $in: params.ids } } else { quizId = { $ne: null } }
 // ----------------------------------------------------------- \\
 
-db.quizinterviewdatas.aggregate([
+db.exampledatas.aggregate([
   { $match: {_id: quiz_id }},
   { $match: {id: quizId }},
   { $project: { 
